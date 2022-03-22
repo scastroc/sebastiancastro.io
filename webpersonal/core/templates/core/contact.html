@@ -10,12 +10,63 @@
 {% endblock %}
 
 {% block content %}
-<div class="row">
+<section class="page-section about-heading">
+  <div class="container">
+        <div class="about-heading-content">
+            <div class="row">
+                <div class="col-xl-9 col-lg-10 mx-auto">
+                <div class="bg-faded rounded p-5">
+                    <h2 class="section-heading mb-4  text-center">
+                    <span class="section-heading-upper">Envíame tus consultas</span>
+                    {% comment %} <span class="section-heading-lower">Contacto</span> {% endcomment %}
+                    </h2>           
+                    
+                    {% if 'ok' in request.GET %}
+                        <p><b>Su mensaje se ha enviado, en breve nos comunicaremos con usted.</b></p>
+                        {% elif 'fail' in request.GET %}
+                        <p>Fallo el envio del mensaje.</p>
+                    {% endif %}
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Nombre *</label>
+                            <div class="input-group">
+                                {{form.name}}
+                            </div>
+                            {{form.name.errors}}
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <div class="input-group">
+                                {{form.email}}
+                            </div>
+                            {{form.email.errors}}                    
+                        </div>
+                        <div class="form-group">
+                            <label>Mensaje *</label>
+                            <div class="input-group">
+                                {{form.content}}
+                            </div>
+                            {{form.content.errors}}
+                        </div>
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-primary btn-block py-2" value="Enviar">
+                        </div>
+                    </form>            
+                    <!-- Fin formulario de contacto -->
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% comment %} <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
           <br>
           <p><b>Teléfono:</b> +09 876 543 210</p>
           <p><b>Honorarios:</b> 60€/h (precio base)</p>
     </div>
-</div>
-{% endblock %}
+</div> {% endcomment %}

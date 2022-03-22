@@ -125,3 +125,16 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
+#Email config
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'sebastian.a.castroc@gmail.com'
+# EMAIL_HOST_PASSWORD = 'u2aY6NJDnUqy7Cq'
+# EMAIL_PORT = '587'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '58288a8d640a97'
+EMAIL_HOST_PASSWORD = '17422ec9b0b2e1'
+EMAIL_PORT = '2525'
+
+
